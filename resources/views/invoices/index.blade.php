@@ -31,16 +31,26 @@
     <div class="row">
 
         @if (session()->has('delete_invoice'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم حذف الفاتورة بنجاح",
-                    type: "success"
-                })
-            }
+            <script>
+                window.onload = function() {
+                    notif({
+                        msg: "تم حذف الفاتورة بنجاح",
+                        type: "success"
+                    })
+                }
+            </script>
+        @endif
 
-        </script>
-    @endif
+        @if (session()->has('Status_Update'))
+            <script>
+                window.onload = function() {
+                    notif({
+                        msg: "تم تحديث حالة الدفع بنجاح",
+                        type: "success"
+                    })
+                }
+            </script>
+        @endif
 
         <div class="col-12">
             @if ($errors->any())
@@ -158,13 +168,20 @@
                                                     type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
                                                 <div class="dropdown-menu tx-13">
                                                     <a class="dropdown-item"
-                                                        href="{{ route('invoices.edit', $invoice->id) }}">تعديل الفاتورة</a>
+                                                        href="{{ route('invoices.edit', $invoice->id) }}">تعديل
+                                                        الفاتورة</a>
 
                                                     <a class="dropdown-item" href="#"
                                                         data-invoice_id="{{ $invoice->id }}" data-toggle="modal"
                                                         data-target="#delete_invoice"><i
                                                             class="text-danger fas fa-trash-alt"></i>&nbsp;&nbsp;حذف
                                                         الفاتورة</a>
+
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('status_show', $invoice->id) }}"><i
+                                                            class=" text-success fas fa-money-bill"></i>&nbsp;&nbsp;تغيير
+                                                        حالة الدفع</a>
+
 
 
                                                 </div>
@@ -247,6 +264,5 @@
             var modal = $(this)
             modal.find('.modal-body #invoice_id').val(invoice_id);
         })
-
     </script>
 @endsection
