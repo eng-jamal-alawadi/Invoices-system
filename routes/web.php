@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\InvoiceAttachmentsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\InvoicesController;
+use App\Http\Controllers\InvoicesDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('invoices', InvoicesController::class);
 Route::resource('sections', SectionController::class);
 Route::resource('products', ProductController::class);
+Route::get('/section/{id}',[InvoicesController::class,'getProducts']);
+Route::get('/InvoicesDetails/{id}',[InvoicesDetailsController::class,'edit'])->name('InvoicesDetails');
+Route::get('/view_file/{invoice_number}/{file_name}',[InvoicesDetailsController::class,'open_file'])->name('view_file');
+Route::get('download/{invoice_number}/{file_name}',[InvoicesDetailsController::class,'download_file']);
+Route::post('delete_file',[InvoicesDetailsController::class,'destroy'])->name('delete_file');
+Route::resource('InvoiceAttachments', InvoiceAttachmentsController::class);
 
 
 

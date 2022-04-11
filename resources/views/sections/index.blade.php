@@ -92,8 +92,8 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <a class="btn btn-info-gradient btn-block" data-effect="effect-scale"
-                            data-toggle="modal" href="#modaldemo8">اضافة قسم</a>
+                        <a class="modal-effect btn btn-info-gradient btn-block" data-effect="effect-scale"
+                            data-toggle="modal" href="#modaldemo8"><i class="fas fa-plus"></i>&nbsp;اضافة قسم</a>
 
                     </div>
 
@@ -122,17 +122,18 @@
 
                                             <div class="btn-group   ">
 
-                                                <a class="btn btn-outline-success btn-sm" data-effect="effect-scale"
+                                                <a class="modal-effect btn btn-outline-success btn-sm" data-effect="effect-scale"
                                                     data-id="{{ $section->id }}" data-name="{{ $section->name }}"
                                                     data-description="{{ $section->description }}" data-toggle="modal"
                                                     href="#edit_section" title="تعديل"><i class="far fa-edit"></i></a>
 
-                                                <a class="btn btn-outline-danger btn-sm " data-effect="effect-scale"
+                                                <a class="modal-effect btn btn-outline-danger btn-sm " data-effect="effect-scale"
                                                     data-id="{{ $section->id }}" data-name="{{ $section->name }}"
                                                     data-toggle="modal" href="#delete_section" title="حذف"><i
                                                         class="far fa-trash-alt"></i></a>
 
                                             </div>
+
                                         </td>
 
 
@@ -213,7 +214,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">تاكيد</button>
+                    <button type="submit" class="btn btn-success">تاكيد</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                 </div>
                 </form>

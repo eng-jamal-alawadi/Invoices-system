@@ -17,5 +17,4 @@
 <link href="{{URL::asset('assets/css-rtl/style-dark.css')}}" rel="stylesheet">
 <!---Skinmodes css-->
 <link href="{{URL::asset('assets/css-rtl/skin-modes.css')}}" rel="stylesheet">
-  <!-- Toastr -->
-  <link rel="stylesheet" href="{{ asset('assets/plugins/toastr/toastr.min.css') }}">
+ 

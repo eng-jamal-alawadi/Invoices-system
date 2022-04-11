@@ -38,12 +38,11 @@ class SectionController extends Controller
     {
        $request->validate([
             'name' => 'required|unique:sections|max:255',
-            'description' => 'required',
+
        ],[
             'name.required' => 'يجب إدخال إسم القسم',
             'name.unique' => 'هذا الإسم موجود بالفعل',
             'name.max' => 'أقصى عدد للحروف هو 255',
-            'description.required' => 'يجب إدخال وصف القسم',
 
         ]);
 
@@ -92,11 +91,11 @@ class SectionController extends Controller
         $id = $request->id;
         $request->validate([
             'name' => 'required|max:255|unique:sections,name,'.$id,
-            'description' => 'required',
+
        ],[
             'name.required' => 'يجب إدخال إسم القسم',
             'name.max' => 'أقصى عدد للحروف هو 255',
-            'description.required' => 'يجب إدخال وصف القسم',
+
 
         ]);
         $section = Section::find($id);

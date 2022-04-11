@@ -91,10 +91,11 @@
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <a class="btn btn-info-gradient btn-block" data-effect="effect-scale" data-toggle="modal"
-                            href="#modaldemo8">اضافة منتج</a>
+                        <a class="modal-effect btn btn-info-gradient btn-block" data-effect="effect-scale" data-toggle="modal"
+                            href="#modaldemo8"><i class="fas fa-plus"></i>&nbsp;اضافة منتج</a>
 
                     </div>
+
 
 
                 </div>
@@ -197,10 +198,11 @@
     <!-- End Basic modal -->
 
     <!-- edit -->
+
     <div class="modal fade" id="edit_product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content modal-content-demo">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">تعديل المنتج</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
