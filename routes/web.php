@@ -63,6 +63,8 @@ Route::get('/Invoice_Unpaid', [InvoicesController::class,'Invoice_Unpaid'])->nam
 
 Route::get('/Invoice_Partial', [InvoicesController::class,'Invoice_Partial'])->name('Invoice_Partial');
 
+Route::get('/print_invoice/{id}',[InvoicesController::class,'print_invoice'])->name('print_invoice');
+
 Route::resource('Archive', InvoiceAchiveController::class);
 
 

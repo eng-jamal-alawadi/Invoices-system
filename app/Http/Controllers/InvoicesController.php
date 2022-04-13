@@ -196,7 +196,7 @@ class InvoicesController extends Controller
             $invoices->forceDelete();
             session()->flash('delete_invoice');
             return redirect('/invoices');
-            
+
         } else {
             // soft delete invoice -> archive invoice
             $invoices->delete();
@@ -283,4 +283,12 @@ class InvoicesController extends Controller
 
         return view('invoices.invoices_Partial', compact('invoices'));
     }
+
+    public function print_invoice($id)
+    {
+        $invoices = invoices::where('id' , $id)->first();
+        return view('invoices.print_invoice', compact('invoices' ));
+    }
+
+
 }
