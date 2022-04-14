@@ -67,5 +67,8 @@ Route::get('/print_invoice/{id}',[InvoicesController::class,'print_invoice'])->n
 
 Route::resource('Archive', InvoiceAchiveController::class);
 
+Route::get('export_invoices/', [InvoicesController::class, 'export'])->name('export_invoices');
+
+
 
 Route::get('/{page}',[AdminController::class, 'index']);

@@ -105,16 +105,15 @@
         @endif
 
         @if (session()->has('restore_invoice'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم استعادة الفاتورة بنجاح",
-                    type: "success"
-                })
-            }
-
-        </script>
-    @endif
+            <script>
+                window.onload = function() {
+                    notif({
+                        msg: "تم استعادة الفاتورة بنجاح",
+                        type: "success"
+                    })
+                }
+            </script>
+        @endif
 
 
 
@@ -124,8 +123,12 @@
         <div class="col-xl-12">
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
-                    <a href="{{ route('invoices.create') }}" class="modal-effect btn btn-info-gradient btn-block"
+                    <a href="{{ route('invoices.create') }}" class="modal-effect btn bg-primary    "
                         style="color:white"><i class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
+
+                        <a class="modal-effect btn  bg-primary  " href="{{ route('export_invoices') }}"
+                            style="color:white  "><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -176,7 +179,7 @@
                                         </td>
                                         <td>{{ $invoice->note }}</td>
                                         <td>
-                                            <div class="dropdown">
+                                            <div class="dropdown ">
                                                 <button aria-expanded="false" aria-haspopup="true"
                                                     class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
                                                     type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
@@ -203,7 +206,8 @@
                                                             class="text-warning fas fa-exchange-alt"></i>&nbsp;&nbsp;نقل الي
                                                         الارشيف</a>
 
-                                                    <a class="dropdown-item" href=" {{route('print_invoice' , $invoice->id) }}"><i
+                                                    <a class="dropdown-item"
+                                                        href=" {{ route('print_invoice', $invoice->id) }}"><i
                                                             class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
                                                         الفاتورة
                                                     </a>

@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Section;
 use App\Models\invoices;
 use Illuminate\Http\Request;
+use App\Exports\InvoicesExport;
 use App\Models\invoices_details;
+use App\Notifications\InvoicePaid;
 use Illuminate\Support\Facades\DB;
 use App\Models\invoice_attachments;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Notification;
 
 class InvoicesController extends Controller
 {
@@ -94,6 +98,13 @@ class InvoicesController extends Controller
             $imageName = $request->pic->getClientOriginalName();
             $request->pic->move(public_path('Attachments/' . $invoice_number), $imageName);
         }
+
+        // send mail invoice
+        $user = Auth::user();
+        Notification::send($user, new InvoicePaid($invoice_id));
+
+
+
 
 
 
@@ -288,6 +299,11 @@ class InvoicesController extends Controller
     {
         $invoices = invoices::where('id' , $id)->first();
         return view('invoices.print_invoice', compact('invoices' ));
+    }
+
+    public function export()
+    {
+        return Excel::download(new InvoicesExport, 'قائمة الفواتير.xlsx');
     }
 
 
